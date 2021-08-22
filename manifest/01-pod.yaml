@@ -1,0 +1,8 @@
+apiVersion: v1 #Versión de la api de ESTE RECURSO de kubernetes
+kind: Pod #tipo de recurso
+metadata: #etiquetas, nombres
+  name: nginx #obligatorio
+spec:
+  containers: #contenedores que componen el pod (coomparten el mismo namespace de red (misma ip))
+  - name: nginx #nombre
+    image: nginx:alpine #imagen
