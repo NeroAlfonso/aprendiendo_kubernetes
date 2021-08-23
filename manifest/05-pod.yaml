@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      env:
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef: #desde un secret
+              name: db-credentials #name del secret al que queremos acceder
+              key: username #clave del valor que queremos obtener
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: password
+      ports:
+      - containerPort: 80
