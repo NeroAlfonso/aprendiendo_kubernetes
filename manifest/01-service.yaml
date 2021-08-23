@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  ports:
+  - port: 8080 #escucha por el puerto 8080
+    targetPort: 8080 #apunta al puerto 8080 del pod seleccionado (siguiente punto)
+  selector:
+    role: hello #especifica el pod backend de este servicio, cuando se apunte a este servicio va a redirigir a todos los pods con la etiqueta role: hello

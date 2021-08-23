@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30000 #opción extra. Que puerto queremos que se cree en cada nodo para llegar a nuestro servicio desde el exterior
+  selector:
+    role: hello
